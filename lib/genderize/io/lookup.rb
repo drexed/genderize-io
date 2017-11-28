@@ -7,6 +7,7 @@ module Genderize
     class Lookup
 
       DEFAULT_HOST ||= 'https://api.genderize.io'
+      RESPONSE_KEYS ||= %w[count country_id language_id gender probability]
 
       attr_reader :country_id, :hash, :host, :name, :response, :language_id
 
@@ -39,8 +40,8 @@ module Genderize
         @hash
       end
 
-      def address
-        @hash['address']
+      RESPONSE_KEYS.each do |key|
+        define_method(key) { @hash[key] }
       end
 
       private

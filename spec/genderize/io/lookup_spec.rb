@@ -74,6 +74,18 @@ RSpec.describe Genderize::Io::Lookup do
     end
   end
 
+  Genderize::Io::Lookup::RESPONSE_KEYS.each do |key|
+    describe ".#{key}" do
+      it 'returns nil' do
+        expect(subject.send(key)).to eq(nil)
+      end
+
+      it "returns value in response_hash[#{key}]" do
+        expect(genderizeio.send(key)).to eq(response_hash[key])
+      end
+    end
+  end
+
   describe '.param_name' do
     it 'returns "?name=kim"' do
       expect(subject.send(:param_name)).to eq('?name=kim')
