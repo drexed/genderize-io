@@ -9,8 +9,8 @@ module Genderize
 
       DEFAULT_HOST ||= 'https://api.genderize.io'
       RESPONSE_KEYS ||= %w[
-        count country_id language_id gender probability x_rate_limit_limit x_rate_limit_remaining
-        x_rate_reset
+        count country_id error language_id gender probability x_rate_limit_limit
+        x_rate_limit_remaining x_rate_reset
       ].freeze
 
       attr_reader :country_id, :hash, :host, :language_id, :name, :response

@@ -1,8 +1,9 @@
 # Genderize::Io
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/genderize/io`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](https://badge.fury.io/rb/genderize-io.svg)](http://badge.fury.io/rb/genderize-io)
+[![Build Status](https://travis-ci.org/drexed/genderize-io.svg?branch=master)](https://travis-ci.org/drexed/genderize-io)
 
-TODO: Delete this and the text above, and describe your gem
+API wrapper for the free [Genderize.io](https://genderize.io) gender determination system.
 
 ## Installation
 
@@ -21,15 +22,40 @@ Or install it yourself as:
     $ gem install genderize-io
 
 ## Usage
+```ruby
+# Basic Lookup
+lookup = Genderize::Io::Lookup.new('kim').verify
+lookup = Genderize::Io::Lookup.verify('kim')
 
-TODO: Write usage instructions here
+# Custom Host
+lookup = Genderize::Io::Lookup.new('kim', host: 'https://api.genderize.io?api_key=xxx').verify
+lookup = Genderize::Io::Lookup.verify('kim', host: 'https://api.genderize.io?api_key=xxx')
 
-## Development
+# Custom IDs
+lookup = Genderize::Io::Lookup.new('kim', country_id: 'dk').verify
+lookup = Genderize::Io::Lookup.verify('kim', language_id: 'en')
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# Public Methods
+lookup.url                    => 'https://api.genderize.io?name=kim'
+lookup.to_h                   => { 'name' => 'kim', 'gender' => 'female', ... }
+lookup.name                   => 'kim'
+lookup.gender                 => 'female'
+lookup.probability            => 0.94
+lookup.count                  => 1098
+lookup.country_id             => 'dk'
+lookup.language_id            => 'en'
+lookup.x_rate_limit_limit     => 1000
+lookup.x_rate_limit_remaining => 738
+lookup.x_rate_reset           => 13829
+lookup.error                  => 'sorry, my bad!'
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/genderize-io.
+Your contribution is welcome.
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
