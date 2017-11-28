@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'typhoeus'
+require 'user_agent_db'
 
 module Genderize
   module Io
@@ -10,7 +11,7 @@ module Genderize
       RESPONSE_KEYS ||= %w[
         count country_id language_id gender probability x_rate_limit_limit x_rate_limit_remaining
         x_rate_reset
-      ]
+      ].freeze
 
       attr_reader :country_id, :hash, :host, :language_id, :name, :response
 
@@ -31,7 +32,9 @@ module Genderize
 
       def verify
         return @hash unless @response.nil?
-        @response = Typhoeus.get(url)
+
+        Typhoeus::Config.user_agent = UserAgentDB.random
+        @response = Typhoeus.get(url, accept_encoding: 'gzip,deflate')
 
         generate_hash
         generate_rate_limits

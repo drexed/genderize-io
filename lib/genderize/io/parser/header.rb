@@ -23,7 +23,7 @@ module Genderize
           @headers = @response.split(/\\r\\n|\n|\r/)
         end
 
-        def method_missing(sym, *args)
+        def method_missing(sym, *_args)
           detect_multi_value_keys(sym)
         end
 
@@ -39,7 +39,7 @@ module Genderize
 
         def detect_multi_value_keys(tag)
           tag = method_sym_to_http_pattern(tag)
-          results = @headers.select{ |val| val =~ /^#{tag}:/i }.map{ |val| value_from(val) }
+          results = @headers.select { |val| val =~ /^#{tag}:/i }.map { |val| value_from(val) }
           results.size <= 1 ? results.first : results
         end
 

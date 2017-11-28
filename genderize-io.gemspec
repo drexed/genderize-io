@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w[lib support]
 
   spec.add_runtime_dependency 'typhoeus'
+  spec.add_runtime_dependency 'user_agent_db'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'

@@ -16,3 +16,9 @@ Lint/ScriptPermission:
   Enabled: false
 Style/Documentation:
   Enabled: false
+Style/MethodMissing:
+  Enabled: false
+Style/PerlBackrefs:
+  Enabled: false
+Style/RegexpLiteral:
+  Enabled: false
