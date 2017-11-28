@@ -7,9 +7,12 @@ module Genderize
     class Lookup
 
       DEFAULT_HOST ||= 'https://api.genderize.io'
-      RESPONSE_KEYS ||= %w[count country_id language_id gender probability]
+      RESPONSE_KEYS ||= %w[
+        count country_id language_id gender probability x_rate_limit_limit x_rate_limit_remaining
+        x_rate_reset
+      ]
 
-      attr_reader :country_id, :hash, :host, :name, :response, :language_id
+      attr_reader :country_id, :hash, :host, :language_id, :name, :response
 
       def initialize(name, host: DEFAULT_HOST, country_id: nil, language_id: nil)
         @name = name
@@ -28,12 +31,15 @@ module Genderize
 
       def verify
         return @hash unless @response.nil?
-        @response = Typhoeus.get(url).response_body
-        @hash = Genderize::Io::Parser::Json.parse(@response) unless @response.nil?
+        @response = Typhoeus.get(url)
+
+        generate_hash
+        generate_rate_limits
       end
 
       def url
-        "#{@host}#{param_name}#{param_country_id}#{param_language_id}"
+        connector = @host.include?('?') ? '&' : '?'
+        "#{@host}#{connector}#{param_name}#{param_country_id}#{param_language_id}"
       end
 
       def to_h
@@ -46,10 +52,20 @@ module Genderize
 
       private
 
+      def generate_hash
+        return if @response.response_body.nil?
+        @hash = Genderize::Io::Parser::Json.parse(@response.response_body)
+      end
+
+      def generate_rate_limits
+        return if @response.response_headers.nil?
+        headers = Genderize::Io::Parser::Header.parse(@response.response_headers)
+        RESPONSE_KEYS.last(3).each { |key| @hash[key] = headers.send(key).to_i }
+      end
+
       def param_name
-        return "?name=#{@name}" unless @name.is_a?(Array)
-        names = @name.map.with_index { |name, i| "name[#{i}]=#{name}" }.join('&')
-        "?#{names}"
+        return "name=#{@name}" unless @name.is_a?(Array)
+        @name.map.with_index { |name, i| "name[#{i}]=#{name}" }.join('&')
       end
 
       def param_country_id

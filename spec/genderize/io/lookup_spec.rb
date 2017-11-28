@@ -35,20 +35,14 @@ RSpec.describe Genderize::Io::Lookup do
     end
   end
 
-  # describe '.verify' do
-  #   it 'returns :response_hash' do
-  #     subject.verify
-  #
-  #     expect(subject.to_h).to eq(response_hash)
-  #     expect(genderizeio.to_h).to eq(response_hash)
-  #     expect(genderizeio_xml.to_h).to eq(response_hash)
-  #   end
-  #
-  #   it 'returns :response_hash' do
-  #     expect(genderizeio.verify).to eq(response_hash)
-  #     expect(genderizeio_xml.verify).to eq(response_hash)
-  #   end
-  # end
+  describe '.verify' do
+    it 'returns true for count key' do
+      subject.verify
+
+      expect(subject.to_h.key?('count')).to eq(true)
+      expect(genderizeio.to_h.key?('count')).to eq(true)
+    end
+  end
 
   describe '.url' do
     json_url = 'https://api.genderize.io?name=kim'
@@ -69,8 +63,8 @@ RSpec.describe Genderize::Io::Lookup do
       expect(subject.to_h).to eq({})
     end
 
-    it 'returns :response_hash' do
-      expect(genderizeio.to_h).to eq(response_hash)
+    it 'returns 7' do
+      expect(genderizeio.to_h.keys.length).to eq(7)
     end
   end
 
@@ -80,19 +74,41 @@ RSpec.describe Genderize::Io::Lookup do
         expect(subject.send(key)).to eq(nil)
       end
 
-      it "returns value in response_hash[#{key}]" do
-        expect(genderizeio.send(key)).to eq(response_hash[key])
+      if key.start_with?('x')
+        it 'returns an integer' do
+          expect(genderizeio.send(key).is_a?(Integer)).to eq(true)
+        end
+      else
+        it "returns value in response_hash[#{key}]" do
+          expect(genderizeio.send(key)).to eq(response_hash[key])
+        end
       end
     end
   end
 
+  describe '.generate_hash' do
+    it 'returns 4' do
+      genderizeio.send(:generate_hash)
+
+      expect(genderizeio.hash.keys.length).to eq(4)
+    end
+  end
+
+  describe '.generate_rate_limits' do
+    it 'returns 7' do
+      genderizeio.send(:generate_rate_limits)
+
+      expect(genderizeio.hash.keys.length).to eq(7)
+    end
+  end
+
   describe '.param_name' do
-    it 'returns "?name=kim"' do
-      expect(subject.send(:param_name)).to eq('?name=kim')
+    it 'returns "name=kim"' do
+      expect(subject.send(:param_name)).to eq('name=kim')
     end
 
-    it 'returns "?name[0]=kim&name[1]=jim"' do
-      expect(genderizeio_batch.send(:param_name)).to eq('?name[0]=kim&name[1]=jim')
+    it 'returns "name[0]=kim&name[1]=jim"' do
+      expect(genderizeio_batch.send(:param_name)).to eq('name[0]=kim&name[1]=jim')
     end
   end
 

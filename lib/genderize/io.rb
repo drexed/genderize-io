@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require 'genderize/io/parser/json'
+%w[json header].each do |file_name|
+  require "genderize/io/parser/#{file_name}"
+end
 
 %w[version lookup].each do |file_name|
   require "genderize/io/#{file_name}"
