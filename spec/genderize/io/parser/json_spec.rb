@@ -13,15 +13,13 @@ RSpec.describe Genderize::Io::Parser::Json do
 
   describe '.parse' do
     it 'returns :response_hash' do
-      expect(Genderize::Io::Parser::Json.parse(json_data)).to eq(response_data)
-    end
-  end
-
-  describe '.parse' do
-    it 'returns :response_hash' do
       subject.parse
 
       expect(subject.hash).to eq(response_data)
+    end
+
+    it 'returns :response_hash' do
+      expect(Genderize::Io::Parser::Json.parse(json_data)).to eq(response_data)
     end
   end
 
