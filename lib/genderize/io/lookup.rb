@@ -8,17 +8,19 @@ module Genderize
 
       DEFAULT_HOST ||= 'https://api.genderize.io'
 
-      attr_reader :hash, :host, :name, :response
+      attr_reader :country_id, :hash, :host, :name, :response, :language_id
 
-      def initialize(name, host: DEFAULT_HOST)
+      def initialize(name, host: DEFAULT_HOST, country_id: nil, language_id: nil)
         @name = name
         @host = host
+        @country_id = country_id
+        @language_id = language_id
         @response = nil
         @hash = {}
       end
 
-      def self.verify(name, host: DEFAULT_HOST)
-        klass = new(name, host: host)
+      def self.verify(name, host: DEFAULT_HOST, country_id: nil, language_id: nil)
+        klass = new(name, host: host, country_id: country_id, language_id: language_id)
         klass.verify
         klass
       end
@@ -30,9 +32,7 @@ module Genderize
       end
 
       def url
-        return "#{@host}?name=#{@name}" if @name.is_a?(String)
-        params = @name.map.with_index { |name, i| "name[#{i}]=#{name}" }.join('&')
-        "#{@host}?#{params}"
+        "#{@host}#{param_name}#{param_country_id}#{param_language_id}"
       end
 
       def to_h
@@ -41,6 +41,22 @@ module Genderize
 
       def address
         @hash['address']
+      end
+
+      private
+
+      def param_name
+        return "?name=#{@name}" unless @name.is_a?(Array)
+        names = @name.map.with_index { |name, i| "name[#{i}]=#{name}" }.join('&')
+        "?#{names}"
+      end
+
+      def param_country_id
+        "&country_id=#{@country_id}" unless @country_id.nil?
+      end
+
+      def param_language_id
+        "&language_id=#{@language_id}" unless @language_id.nil?
       end
 
     end

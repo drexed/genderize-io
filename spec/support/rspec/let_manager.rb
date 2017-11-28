@@ -6,20 +6,29 @@ module LetManager
   let(:json_data) do
     <<-DATA
       {
-        "name":"peter",
-        "gender":"male",
-        "probability":"0.99",
-        "count":796
+        "name":"kim",
+        "gender":"female",
+        "probability":"0.88",
+        "count":3561
       }
     DATA
   end
 
+  let(:response_data) do
+    {
+      'name' => 'kim',
+      'gender' => 'female',
+      'probability' => '0.88',
+      'count' => 3561
+    }
+  end
+
   let(:response_hash) do
     {
-      'name' => 'peter',
-      'gender' => 'male',
-      'probability' => '0.99',
-      'count' => 796
+      'name' => 'kim',
+      'gender' => 'female',
+      'probability' => 0.88,
+      'count' => 3561
     }
   end
 
