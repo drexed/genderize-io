@@ -1,7 +1,5 @@
-require "genderize/io/version"
+# frozen_string_literal: true
 
-module Genderize
-  module Io
-    # Your code goes here...
-  end
+%w[version].each do |file_name|
+  require "genderize/io/#{file_name}"
 end

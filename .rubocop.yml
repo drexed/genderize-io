@@ -1,0 +1,18 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.4
+  Exclude:
+    - 'spec/**/**/*'
+Gemspec/OrderedDependencies:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+LineLength:
+  Max: 100
+Lint/ScriptPermission:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
