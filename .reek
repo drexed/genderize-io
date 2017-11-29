@@ -3,6 +3,8 @@ BooleanParameter:
   enabled: false
 DuplicateMethodCall:
   enabled: false
+FeatureEnvy:
+  enabled: false
 InstanceVariableAssumption:
   enabled: false
 IrresponsibleModule:
@@ -10,6 +12,8 @@ IrresponsibleModule:
 LongParameterList:
   enabled: false
 NilCheck:
+  enabled: false
+RepeatedConditional:
   enabled: false
 TooManyInstanceVariables:
   enabled: false
