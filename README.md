@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/drexed/genderize-io.svg?branch=master)](https://travis-ci.org/drexed/genderize-io)
 
 API wrapper for the [Genderize.io](https://genderize.io) first name gender determination system.
-*Be aware that the free API has a daily limit of 1000*
+*Be aware that the free API has a limit of 1000 determinations per day.*
 
 ## Installation
 
@@ -74,11 +74,11 @@ lookup = Genderize::Io::Batch::Lookup.determine(['kim', 'jim'], host: 'https://a
 ```ruby
 lookup.url  => 'https://api.genderize.io?name[0]=kim&name[1]=jim'
 lookup.data => {
+                 'rate_limits' => { 'x_rate_limit_limit' => 1069, ... },
                  'responses' => [
                    { 'name' => 'kim', 'gender' => 'female', ... },
                    { 'name' => 'jim', 'gender' => 'male', ... }
-                 ],
-                 'rate_limits' => { 'x_rate_limit_limit' => 1069, ... }
+                 ]
                }
 ```
 

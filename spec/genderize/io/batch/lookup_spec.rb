@@ -7,8 +7,8 @@ RSpec.describe Genderize::Io::Batch::Lookup do
 
   describe '.initialize' do
     it 'returns { ... }' do
-      expect(subject.data).to eq({ 'responses' => [],
-                                   'rate_limits' => {} })
+      expect(subject.data).to eq({ 'rate_limits' => {},
+                                   'responses' => [] })
     end
   end
 
@@ -16,8 +16,8 @@ RSpec.describe Genderize::Io::Batch::Lookup do
     it 'returns populated data' do
       subject.determine
 
-      expect(subject.data['responses'].empty?).to eq(false)
       expect(subject.data['rate_limits'].empty?).to eq(false)
+      expect(subject.data['responses'].empty?).to eq(false)
     end
   end
 

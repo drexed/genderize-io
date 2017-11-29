@@ -8,8 +8,8 @@ module Genderize
         def initialize(name, host: DEFAULT_HOST, country_id: nil, language_id: nil)
           super(name, host: host, country_id: country_id, language_id: language_id)
           @data = {
-            'responses' => [],
-            'rate_limits' => {}
+            'rate_limits' => {},
+            'responses' => []
           }
         end
 
