@@ -4,7 +4,11 @@ require 'spec_helper'
 
 RSpec.describe Genderize::Io::Lookup do
   subject { Genderize::Io::Lookup.new('kim') }
-  let(:genderizeio) { Genderize::Io::Lookup.determine('kim') }
+  let(:genderizeio) do
+    VCR.use_cassette('lookup') do
+      Genderize::Io::Lookup.determine('kim')
+    end
+  end
 
   describe '.initialize' do
     it 'returns {}' do

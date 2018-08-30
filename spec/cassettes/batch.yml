@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.genderize.io/?name%5B%5D=jim&name%5B%5D=kim
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (Windows; U; Windows NT 6.0; ru; rv:1.9.2) Gecko/20100115 Firefox/3.6
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Date:
+      - Thu, 30 Aug 2018 03:00:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '126'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Rate-Limit-Limit:
+      - '1000'
+      X-Rate-Limit-Remaining:
+      - '986'
+      X-Rate-Reset:
+      - '86028'
+      Etag:
+      - W/"7e-VPSQVcAvfJF+Jni4BBS2tg"
+    body:
+      encoding: UTF-8
+      string: '[{"name":"kim","gender":"female","probability":0.88,"count":3561},{"name":"jim","gender":"male","probability":1,"count":2291}]'
+    http_version: 
+  recorded_at: Thu, 30 Aug 2018 03:00:38 GMT
+recorded_with: VCR 4.0.0

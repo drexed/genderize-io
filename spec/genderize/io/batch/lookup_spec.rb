@@ -14,10 +14,12 @@ RSpec.describe Genderize::Io::Batch::Lookup do
 
   describe '.determine' do
     it 'returns populated data' do
-      subject.determine
+      VCR.use_cassette('batch') do
+        subject.determine
 
-      expect(subject.data['rate_limits'].empty?).to eq(false)
-      expect(subject.data['responses'].empty?).to eq(false)
+        expect(subject.data['rate_limits'].empty?).to eq(false)
+        expect(subject.data['responses'].empty?).to eq(false)
+      end
     end
   end
 
