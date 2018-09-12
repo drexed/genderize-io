@@ -14,9 +14,15 @@ LineLength:
   Max: 100
 Lint/ScriptPermission:
   Enabled: false
+Naming/FileName:
+  Enabled: false
 Style/Documentation:
   Enabled: false
-Style/MethodMissing:
+Style/ExpandPathArguments:
+  Enabled: false
+Style/MethodMissingSuper:
+  Enabled: false
+Style/MissingRespondToMissing:
   Enabled: false
 Style/PerlBackrefs:
   Enabled: false

@@ -35,22 +35,26 @@ module Genderize
 
       def generate_data
         return if @request.nil?
+
         Genderize::Io::Parser::Json.parse(@request.response_body)
       end
 
       def generate_headers
         return if @request.nil?
+
         Genderize::Io::Parser::Header.parse(@request.response_headers)
       end
 
       def generate_rate_limits
         headers = generate_headers
         return if headers.nil?
+
         HEADER_KEYS.each_with_object({}) { |key, hash| hash[key] = headers.send(key).to_i }
       end
 
       def generate_request
         return @request unless @request.nil?
+
         Typhoeus::Config.user_agent = UserAgentDB.random
         Typhoeus.get(url, accept_encoding: 'gzip,deflate')
       end
