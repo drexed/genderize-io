@@ -1,7 +1,7 @@
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
   Exclude:
     - 'spec/**/**/*'
 Gemspec/OrderedDependencies:
@@ -12,7 +12,7 @@ Layout/EmptyLinesAroundModuleBody:
   Enabled: false
 LineLength:
   Max: 100
-Lint/ScriptPermission:
+Lint/RescueException:
   Enabled: false
 Naming/FileName:
   Enabled: false
