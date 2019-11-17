@@ -4,10 +4,13 @@ module Genderize
   module Io
     class Lookup < Genderize::Io::Base
 
-      RESPONSE_KEYS ||= %w[count country_id error language_id gender probability].freeze
+      RESPONSE_KEYS ||= %w[
+        count country_id error language_id gender probability
+      ].freeze
 
       def initialize(name, host: DEFAULT_HOST, country_id: nil, language_id: nil)
-        super(name, host: host, country_id: country_id, language_id: language_id)
+        super
+
         @data = {}
       end
 

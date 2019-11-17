@@ -3,23 +3,23 @@
 require 'spec_helper'
 
 RSpec.describe Genderize::Io::Parser::Json do
-  subject { Genderize::Io::Parser::Json.new(json_data) }
+  let(:klass) { described_class.new(json_data) }
 
   describe '.initialize' do
     it 'returns {}' do
-      expect(subject.hash).to eq({})
+      expect(klass.hash).to eq({})
     end
   end
 
   describe '.parse' do
-    it 'returns :response_hash' do
-      subject.parse
+    it 'returns :response_hash via instance method' do
+      klass.parse
 
-      expect(subject.hash).to eq(response_data)
+      expect(klass.hash).to eq(response_data)
     end
 
-    it 'returns :response_hash' do
-      expect(Genderize::Io::Parser::Json.parse(json_data)).to eq(response_data)
+    it 'returns :response_hash via class method' do
+      expect(described_class.parse(json_data)).to eq(response_data)
     end
   end
 

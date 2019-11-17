@@ -6,11 +6,9 @@ module Genderize
       class Lookup < Genderize::Io::Base
 
         def initialize(name, host: DEFAULT_HOST, country_id: nil, language_id: nil)
-          super(name, host: host, country_id: country_id, language_id: language_id)
-          @data = {
-            'rate_limits' => {},
-            'responses' => []
-          }
+          super
+
+          @data = { 'rate_limits' => {}, 'responses' => [] }
         end
 
         def determine

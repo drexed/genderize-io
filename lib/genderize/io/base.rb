@@ -8,7 +8,9 @@ module Genderize
     class Base
 
       DEFAULT_HOST ||= 'https://api.genderize.io'
-      HEADER_KEYS ||= %w[x_rate_limit_limit x_rate_limit_remaining x_rate_reset].freeze
+      HEADER_KEYS ||= %w[
+        x_rate_limit_limit x_rate_limit_remaining x_rate_reset
+      ].freeze
 
       attr_reader :country_id, :data, :host, :language_id, :name, :request
 

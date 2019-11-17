@@ -6,9 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.0] - 2019-11-17
+## [1.2.0] - 2019-11-17
 ### Added
 - Added CHANGELOG.md
+### Changed
+- Swap `user_agent_db` for `agents` gem
+- Refactor code to clean up lint errors
 
 ## [1.1.0] - 2019-11-17
 ### NOTE
