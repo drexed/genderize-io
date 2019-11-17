@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
+require 'agents'
 require 'typhoeus'
-require 'user_agent_db'
 
 module Genderize
   module Io
@@ -55,7 +55,7 @@ module Genderize
       def generate_request
         return @request unless @request.nil?
 
-        Typhoeus::Config.user_agent = UserAgentDB.random
+        Typhoeus::Config.user_agent = Agents.random_user_agent(:desktop)
         Typhoeus.get(url, accept_encoding: 'gzip,deflate')
       end
 

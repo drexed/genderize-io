@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module LetSupport
+module DataHelper
   extend RSpec::SharedContext
 
   let(:json_data) do
@@ -8,7 +8,7 @@ module LetSupport
       {
         "name":"kim",
         "gender":"female",
-        "probability":"0.88",
+        "probability":"0.56",
         "count":3561
       }
     DATA
@@ -18,7 +18,7 @@ module LetSupport
     {
       'name' => 'kim',
       'gender' => 'female',
-      'probability' => '0.88',
+      'probability' => '0.56',
       'count' => 3561
     }
   end
@@ -27,7 +27,7 @@ module LetSupport
     {
       'name' => 'kim',
       'gender' => 'female',
-      'probability' => 0.88,
+      'probability' => 0.56,
       'count' => 3561
     }
   end

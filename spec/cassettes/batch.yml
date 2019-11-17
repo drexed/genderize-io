@@ -8,7 +8,8 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (Windows; U; Windows NT 6.0; ru; rv:1.9.2) Gecko/20100115 Firefox/3.6
+      - Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+        Chrome/71.0.3578.98 Safari/537.36
       Expect:
       - ''
   response:
@@ -17,34 +18,32 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.16.1
       Date:
-      - Thu, 30 Aug 2018 03:00:38 GMT
+      - Sun, 17 Nov 2019 21:58:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '126'
+      - '131'
       Connection:
       - keep-alive
-      X-Powered-By:
-      - Express
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
       - GET
       Access-Control-Allow-Headers:
-      - Content-Type
+      - Content-Type, X-Genderize-Source
       X-Rate-Limit-Limit:
       - '1000'
-      X-Rate-Limit-Remaining:
-      - '986'
       X-Rate-Reset:
-      - '86028'
+      - '7267'
+      X-Rate-Limit-Remaining:
+      - '997'
       Etag:
-      - W/"7e-VPSQVcAvfJF+Jni4BBS2tg"
+      - W/"83-IoaKKk2OLoyNjt3H86GHeqC6qPc"
     body:
       encoding: UTF-8
-      string: '[{"name":"kim","gender":"female","probability":0.88,"count":3561},{"name":"jim","gender":"male","probability":1,"count":2291}]'
+      string: '[{"name":"kim","gender":"female","probability":0.56,"count":51609},{"name":"jim","gender":"male","probability":0.98,"count":26900}]'
     http_version: 
-  recorded_at: Thu, 30 Aug 2018 03:00:38 GMT
-recorded_with: VCR 4.0.0
+  recorded_at: Sun, 17 Nov 2019 21:58:52 GMT
+recorded_with: VCR 5.0.0

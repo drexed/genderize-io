@@ -8,8 +8,8 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (Windows; U; Windows NT 6.0; it; rv:1.9.2.12) Gecko/20101114 IceCat/3.6.12
-        (like Firefox/3.6.12)
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML,
+        like Gecko) Version/12.0 Safari/605.1.15
       Expect:
       - ''
   response:
@@ -18,34 +18,32 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.10.3 (Ubuntu)
+      - nginx/1.16.1
       Date:
-      - Thu, 30 Aug 2018 03:00:38 GMT
+      - Sun, 17 Nov 2019 21:58:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '64'
+      - '65'
       Connection:
       - keep-alive
-      X-Powered-By:
-      - Express
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
       - GET
       Access-Control-Allow-Headers:
-      - Content-Type
+      - Content-Type, X-Genderize-Source
       X-Rate-Limit-Limit:
       - '1000'
-      X-Rate-Limit-Remaining:
-      - '985'
       X-Rate-Reset:
-      - '86028'
+      - '7268'
+      X-Rate-Limit-Remaining:
+      - '999'
       Etag:
-      - W/"40-I2pZwwySeUaPhZkCK8XXoA"
+      - W/"41-VWi4Gf1e0SpvbfR9ZwtgnOYOax4"
     body:
       encoding: UTF-8
-      string: '{"name":"kim","gender":"female","probability":0.88,"count":3561}'
+      string: '{"name":"kim","gender":"female","probability":0.56,"count":51609}'
     http_version: 
-  recorded_at: Thu, 30 Aug 2018 03:00:38 GMT
-recorded_with: VCR 4.0.0
+  recorded_at: Sun, 17 Nov 2019 21:58:52 GMT
+recorded_with: VCR 5.0.0
