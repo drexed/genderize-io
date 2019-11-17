@@ -2,5 +2,5 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in lite-ruby.gemspec
+# Specify your gem's dependencies in genderize-io.gemspec
 gemspec
