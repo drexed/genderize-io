@@ -22,13 +22,6 @@ Or install it yourself as:
 
     $ gem install genderize-io
 
-## Table of Contents
-
-* [Simple Lookup](#simple-lookup)
-* [Simple Response](#simple-response)
-* [Batch Lookup](#batch-lookup)
-* [Batch Response](#batch-response)
-
 ## Usage
 
 ### Simple Lookup
