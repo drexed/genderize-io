@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    genderize-io (2.0.0)
+    genderize-io (1.2.0)
       agents
       typhoeus
 
