@@ -18,14 +18,14 @@ Layout/LineLength:
   Max: 100
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/**/*'
-    - '*.gemspec'
 Lint/RaiseException:
   Enabled: true
 Lint/StructNewOverride:
   Enabled: true
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/**/*'
+    - '*.gemspec'
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
