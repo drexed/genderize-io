@@ -5,6 +5,8 @@ AllCops:
   TargetRubyVersion: 2.6
   DisplayCopNames: true
   DisplayStyleGuide: true
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'spec/**/**/*'
@@ -12,12 +14,18 @@ Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines_except_namespace
 Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines_except_namespace
+Layout/LineLength:
+  Max: 100
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/**/*'
     - '*.gemspec'
-Metrics/LineLength:
-  Max: 100
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
@@ -25,4 +33,14 @@ RSpec/MultipleExpectations:
 Style/Documentation:
   Enabled: false
 Style/ExpandPathArguments:
+  Enabled: false
+Style/ExponentialNotation:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/SlicingWithRange:
   Enabled: false
