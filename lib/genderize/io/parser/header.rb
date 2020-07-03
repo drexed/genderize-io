@@ -54,7 +54,7 @@ module Genderize
 
         def value_from(tag)
           val = tag.split(/:\s+/)[1]
-          val =~ /^\"(.*)\"$/ ? Regexp.last_match(1) : val
+          val =~ /^"(.*)"$/ ? Regexp.last_match(1) : val
         end
 
       end
