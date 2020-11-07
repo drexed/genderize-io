@@ -9,7 +9,7 @@ http_interactions:
     headers:
       User-Agent:
       - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/72.0.3626.119 Safari/537.36
+        Gecko) Chrome/72.0.3626.121 Safari/537.36
       Expect:
       - ''
   response:
@@ -20,7 +20,7 @@ http_interactions:
       Server:
       - nginx/1.16.1
       Date:
-      - Fri, 03 Jul 2020 14:13:39 GMT
+      - Sat, 07 Nov 2020 00:01:25 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -36,7 +36,7 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '1000'
       X-Rate-Reset:
-      - '35181'
+      - '86314'
       X-Rate-Limit-Remaining:
       - '998'
       Etag:
@@ -44,5 +44,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '[{"name":"kim","gender":"female","probability":0.56,"count":51609},{"name":"jim","gender":"male","probability":0.98,"count":26900}]'
-  recorded_at: Fri, 03 Jul 2020 14:13:39 GMT
+  recorded_at: Sat, 07 Nov 2020 00:01:25 GMT
 recorded_with: VCR 6.0.0
