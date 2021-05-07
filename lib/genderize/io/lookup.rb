@@ -4,7 +4,7 @@ module Genderize
   module Io
     class Lookup < Genderize::Io::Base
 
-      RESPONSE_KEYS ||= %w[
+      RESPONSE_KEYS = %w[
         count country_id error language_id gender probability
       ].freeze
 
