@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2020-07-05
+### Changed
+- Linter fixes
+
 ## [1.2.1] - 2020-07-03
 ### Added
 - Added Ruby 2.7 support
