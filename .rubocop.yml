@@ -1,8 +1,9 @@
 require:
   - rubocop-performance
+  - rubocop-rake
   - rubocop-rspec
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   NewCops: enable
   DisplayCopNames: true
   DisplayStyleGuide: true
@@ -32,6 +33,8 @@ Metrics/BlockLength:
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
+  Enabled: false
+Style/ArgumentsForwarding:
   Enabled: false
 Style/Documentation:
   Enabled: false
