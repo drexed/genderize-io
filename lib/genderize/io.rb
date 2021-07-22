@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-%w[json header].each do |file_name|
-  require "genderize/io/parser/#{file_name}"
-end
+require 'genderize/io/version'
 
-%w[version base lookup].each do |file_name|
-  require "genderize/io/#{file_name}"
-  require "genderize/io/batch/#{file_name}" if file_name == 'lookup'
-end
+require 'genderize/io/parser/json'
+require 'genderize/io/parser/header'
+
+require 'genderize/io/base'
+require 'genderize/io/lookup'
+
+require 'genderize/io/batch/lookup'

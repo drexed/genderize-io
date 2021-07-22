@@ -14,9 +14,9 @@ module Genderize
         end
 
         def self.parse(response, strict: true)
-          klass = new(response, strict: strict)
-          klass.parse
-          klass
+          instance = new(response, strict: strict)
+          instance.parse
+          instance
         end
 
         def parse

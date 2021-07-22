@@ -15,9 +15,9 @@ module Genderize
         end
 
         def self.parse(data)
-          klass = new(data)
-          klass.parse
-          klass.hash
+          instance = new(data)
+          instance.parse
+          instance.hash
         end
 
         def parse

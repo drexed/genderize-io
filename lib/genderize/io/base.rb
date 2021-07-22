@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'agents'
-require 'typhoeus'
+require 'typhoeus' unless defined?(Typhoeus)
 
 module Genderize
   module Io
@@ -23,9 +22,9 @@ module Genderize
       end
 
       def self.determine(name, host: DEFAULT_HOST, country_id: nil, language_id: nil)
-        klass = new(name, host: host, country_id: country_id, language_id: language_id)
-        klass.determine
-        klass
+        instance = new(name, host: host, country_id: country_id, language_id: language_id)
+        instance.determine
+        instance
       end
 
       def url
@@ -57,7 +56,6 @@ module Genderize
       def generate_request
         return @request unless @request.nil?
 
-        Typhoeus::Config.user_agent = Agents.random_user_agent(:desktop)
         Typhoeus.get(url, accept_encoding: 'gzip,deflate')
       end
 
